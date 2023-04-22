@@ -1,0 +1,24 @@
+{
+  "name": "js-developer-pokedex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tavim2020/js-developer-pokedex.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tavim2020/js-developer-pokedex/issues"
+  },
+  "homepage": "https://github.com/Tavim2020/js-developer-pokedex#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

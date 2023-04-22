@@ -7,17 +7,18 @@ let offset = 0;
 
 function convertPokemonToLi(pokemon) {
     return `
-        <li class="pokemon ${pokemon.type}">
-            <span class="number">#${pokemon.number}</span>
-            <span class="name">${pokemon.name}</span>
+        <li class="pokemon ${pokemon.type}" id="${pokemon.number}" onclick="clickCard(event)">
+            <span class="number"  id="${pokemon.number}">#${pokemon.number}</span>
+            <span class="name"  id="${pokemon.number}">${pokemon.name}</span>
 
-            <div class="detail">
-                <ol class="types">
-                    ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
+            <div class="detail"  id="${pokemon.number}">
+                <ol class="types"  id="${pokemon.number}">
+                    ${pokemon.types.map((type) => `<li class="type ${type}"  id="${pokemon.number}">${type}</li>`).join('')}
                 </ol>
 
                 <img src="${pokemon.photo}"
-                     alt="${pokemon.name}">
+                     alt="${pokemon.name}"  
+                     id="${pokemon.number}">
             </div>
         </li>
     `

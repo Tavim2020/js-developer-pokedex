@@ -17,10 +17,15 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
     return pokemon
 }
 
+const allPokemonDetails = [];
+
 pokeApi.getPokemonDetail = (pokemon) => {
     return fetch(pokemon.url)
         .then((response) => response.json())
-        .then(convertPokeApiDetailToPokemon)
+        .then((response) => {
+            allPokemonDetails.push(response);
+            return convertPokeApiDetailToPokemon(response)
+        })
 }
 
 pokeApi.getPokemons = (offset = 0, limit = 5) => {
@@ -29,7 +34,7 @@ pokeApi.getPokemons = (offset = 0, limit = 5) => {
     return fetch(url)
         .then((response) => response.json())
         .then((jsonBody) => jsonBody.results)
-        .then((pokemons) => pokemons.map(pokeApi.getPokemonDetail))
+        .then((pokemons) =>  pokemons.map(pokeApi.getPokemonDetail))
         .then((detailRequests) => Promise.all(detailRequests))
         .then((pokemonsDetails) => pokemonsDetails)
 }
